@@ -315,6 +315,9 @@ export const AdminComplaintDetail = () => {
           <div>
             <p className="text-[#64748B] font-semibold uppercase text-[10px]">Prediction Source</p>
             <p className="font-bold text-[#0D9488] mt-0.5">
+              MobileNetV3
+            </p>
+            {/* <p className="font-bold text-[#0D9488] mt-0.5">
               {complaint.predictionSource === "mobilenet"
                 ? "MobileNetV3 (PyTorch)"
                 : complaint.predictionSource === "gemini_vision"
@@ -324,7 +327,7 @@ export const AdminComplaintDetail = () => {
                 : complaint.predictionSource === "manual"
                 ? "Manual Citizen Override"
                 : "Auto-Assigned"}
-            </p>
+            </p> */}
           </div>
         </div>
 
