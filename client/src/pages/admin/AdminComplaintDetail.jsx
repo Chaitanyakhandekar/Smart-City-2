@@ -228,12 +228,20 @@ export const AdminComplaintDetail = () => {
           {complaint.description}
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#F1F5F9] text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-4 border-t border-[#F1F5F9] text-xs">
           <div className="flex items-center gap-2.5">
             <MapPin className="w-4 h-4 text-sky-500 flex-shrink-0" />
             <div>
               <p className="font-semibold text-[#0F172A]">Location Address</p>
               <p className="text-[#64748B]">{complaint.locationAddress}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2.5">
+            <MapPin className="w-4 h-4 text-teal-600 flex-shrink-0" />
+            <div>
+              <p className="font-semibold text-[#0F172A]">Landmark</p>
+              <p className="text-[#64748B]">{complaint.landmark || "Not provided"}</p>
             </div>
           </div>
 

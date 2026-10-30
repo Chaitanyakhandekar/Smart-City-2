@@ -588,8 +588,9 @@ export const AdminDashboard = () => {
                         >
                           {item.title}
                         </Link>
-                        <p className="text-[11px] text-[#64748B] font-mono truncate">
+                        <p className="text-[11px] text-[#64748B] font-mono truncate" title={item.landmark ? `${item.locationAddress} (Landmark: ${item.landmark})` : item.locationAddress}>
                           {item.locationAddress}
+                          {item.landmark ? ` • Landmark: ${item.landmark}` : ""}
                         </p>
                       </div>
                     </div>

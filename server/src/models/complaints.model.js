@@ -164,6 +164,11 @@ const complaintSchema = new Schema(
       required: [true, "Location address is required"],
       trim: true
     },
+    landmark: {
+      type: String,
+      default: "",
+      trim: true
+    },
     citizenConfirmed: {
       type: Boolean,
       default: null

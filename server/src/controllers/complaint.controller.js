@@ -23,6 +23,7 @@ export const createComplaint = asyncHandler(async (req, res) => {
     subcategory,
     priority,
     locationAddress,
+    landmark,
     aiCategory,
     aiSubcategory,
     aiConfidence,
@@ -108,7 +109,8 @@ export const createComplaint = asyncHandler(async (req, res) => {
     priority: resolvedPriority,
     aiPriority: finalAiPrio,
     status: "SUBMITTED",
-    locationAddress: locationAddress.trim()
+    locationAddress: locationAddress.trim(),
+    landmark: landmark ? landmark.trim() : ""
   });
 
   // Save BEFORE image record if photo provided

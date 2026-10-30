@@ -486,9 +486,12 @@ export const StaffDashboard = () => {
 
                           {/* Location */}
                           <td className="py-3 px-2 text-[#64748B] max-w-[140px]">
-                            <div className="flex items-center gap-1 truncate">
+                            <div className="flex items-center gap-1 truncate" title={task.landmark ? `${task.locationAddress} (Landmark: ${task.landmark})` : task.locationAddress}>
                               <MapPin className="w-3.5 h-3.5 text-[#0D9488] flex-shrink-0" />
-                              <span className="truncate">{task.locationAddress}</span>
+                              <span className="truncate">
+                                {task.locationAddress}
+                                {task.landmark ? ` (${task.landmark})` : ""}
+                              </span>
                             </div>
                           </td>
 

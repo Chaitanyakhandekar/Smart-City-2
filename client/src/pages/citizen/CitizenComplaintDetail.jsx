@@ -358,6 +358,10 @@ export const CitizenComplaintDetail = () => {
                 <MapPin className="w-3.5 h-3.5 text-[#0D9488] flex-shrink-0" />
                 <span className="truncate">{complaint.locationAddress}</span>
               </p>
+              <p className="text-xs text-[#64748B] flex items-center gap-1 mt-0.5">
+                <span className="font-semibold text-[#0F172A]">Landmark:</span>
+                <span className="truncate">{complaint.landmark || "Not provided"}</span>
+              </p>
             </div>
           </div>
 
