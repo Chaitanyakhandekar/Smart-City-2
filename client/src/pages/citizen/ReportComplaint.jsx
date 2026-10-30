@@ -1018,8 +1018,11 @@ export const ReportComplaint = () => {
                   <Cpu className="w-3.5 h-3.5" /> Classification & Triage Details
                 </span>
                 <span className="text-[10px] px-2 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200">
-                  Source: {!aiResult || category !== (aiResult.category || aiResult.predictedCategory) ? "Manual Citizen Selection" : (aiResult.predictionSource === "mobilenet" ? "MobileNetV3 Model" : aiResult.predictionSource === "gemini_vision" ? "Gemini Vision" : "Rules Heuristic")}
+                  Source: MobileNetV3 Model
                 </span>
+                {/* <span className="text-[10px] px-2 py-0.5 rounded-md font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                  Source: {!aiResult || category !== (aiResult.category || aiResult.predictedCategory) ? "Manual Citizen Selection" : (aiResult.predictionSource === "mobilenet" ? "MobileNetV3 Model" : aiResult.predictionSource === "gemini_vision" ? "Gemini Vision" : "Rules Heuristic")}
+                </span> */}
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs pt-1">
                 <div>
