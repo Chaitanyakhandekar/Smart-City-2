@@ -259,12 +259,21 @@ export const StaffTaskDetail = () => {
           </div>
 
           {/* Metadata Tiles */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
               <div className="flex items-center gap-2 text-[#64748B] text-[10px] uppercase font-bold mb-1">
                 <MapPin className="w-3.5 h-3.5 text-[#0D9488]" /> Location
               </div>
-              <p className="font-semibold text-xs text-[#0F172A] truncate">{complaint.locationAddress}</p>
+              <p className="font-semibold text-xs text-[#0F172A] truncate" title={complaint.locationAddress}>{complaint.locationAddress}</p>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+              <div className="flex items-center gap-2 text-[#64748B] text-[10px] uppercase font-bold mb-1">
+                <MapPin className="w-3.5 h-3.5 text-teal-600" /> Landmark
+              </div>
+              <p className="font-semibold text-xs text-[#0F172A] truncate" title={complaint.landmark || "Not provided"}>
+                {complaint.landmark || "Not provided"}
+              </p>
             </div>
 
             <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">

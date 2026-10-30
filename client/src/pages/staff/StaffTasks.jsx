@@ -243,7 +243,10 @@ export const StaffTasks = () => {
                       <div className="flex flex-col text-xs space-y-1 min-w-0">
                         <span className="flex items-center gap-1 font-semibold text-[#0F172A] truncate">
                           <MapPin className="w-3.5 h-3.5 text-[#0D9488] flex-shrink-0" />
-                          <span className="truncate">{task.locationAddress}</span>
+                          <span className="truncate">
+                            {task.locationAddress}
+                            {task.landmark ? ` (Landmark: ${task.landmark})` : ""}
+                          </span>
                         </span>
                         <span className="text-[11px] text-[#64748B] flex items-center gap-1 truncate">
                           <User className="w-3 h-3 text-[#94A3B8] flex-shrink-0" />

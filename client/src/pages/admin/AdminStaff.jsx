@@ -84,6 +84,11 @@ export const AdminStaff = () => {
       return;
     }
 
+    if (!formData.phone || !/^[0-9]{10}$/.test(formData.phone)) {
+      toast.error("Phone number must contain exactly 10 digits without +91.");
+      return;
+    }
+
     try {
       setActionLoading(true);
       await adminApi.createStaff(formData);
@@ -335,15 +340,24 @@ export const AdminStaff = () => {
 
                 <div>
                   <label className="block text-xs font-semibold text-[#64748B] mb-1">
-                    Phone Number
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
+                    inputMode="numeric"
+                    maxLength={10}
+                    required
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98220 12345"
+                    onChange={(e) => {
+                      const digitsOnly = e.target.value.replace(/[^0-9]/g, "").slice(0, 10);
+                      setFormData({ ...formData, phone: digitsOnly });
+                    }}
+                    placeholder="9876543210"
                     className="w-full px-3.5 py-2 bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] placeholder-[#94A3B8] rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#0D9488]"
                   />
+                  <p className="text-[11px] text-[#94A3B8] mt-1">
+                    10 digits only without +91
+                  </p>
                 </div>
               </div>
 

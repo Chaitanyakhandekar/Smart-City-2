@@ -222,7 +222,10 @@ export const CitizenComplaints = () => {
                     <div className="flex flex-col text-xs text-[#64748B] space-y-1 min-w-0">
                       <span className="flex items-center gap-1 line-clamp-1 font-medium text-[#334155]">
                         <MapPin className="w-3.5 h-3.5 text-[#0D9488] flex-shrink-0" />
-                        <span className="truncate">{comp.locationAddress}</span>
+                        <span className="truncate">
+                          {comp.locationAddress}
+                          {comp.landmark ? ` (Landmark: ${comp.landmark})` : ""}
+                        </span>
                       </span>
                       <span className="text-[11px] text-[#94A3B8]">
                         Dept: <span className="text-[#475569]">{comp.category}</span> • {comp.subcategory || "General"}

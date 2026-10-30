@@ -564,7 +564,10 @@ export const CitizenDashboard = () => {
                         </h4>
                         <div className="flex items-center gap-1 text-[11px] text-[#64748B] truncate mt-0.5">
                           <MapPin className="w-3 h-3 text-[#94A3B8] flex-shrink-0" />
-                          <span className="truncate">{c.locationAddress || "Civic location"}</span>
+                          <span className="truncate">
+                            {c.locationAddress || "Civic location"}
+                            {c.landmark ? ` (Landmark: ${c.landmark})` : ""}
+                          </span>
                         </div>
                       </div>
                     </div>

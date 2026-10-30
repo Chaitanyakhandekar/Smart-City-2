@@ -556,6 +556,12 @@ export const createStaff = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Name, email, password, and department are required.");
   }
 
+  // Validate phone number format: exactly 10 digits, no +91 or special characters
+  const cleanPhone = phone !== undefined && phone !== null ? String(phone).trim() : "";
+  if (!cleanPhone || !/^[0-9]{10}$/.test(cleanPhone)) {
+    throw new ApiError(400, "Phone number must contain exactly 10 digits without +91.");
+  }
+
   const existingUser = await User.findOne({ email: email.toLowerCase().trim() });
   if (existingUser) {
     throw new ApiError(409, "User with this email already exists.");
@@ -565,7 +571,7 @@ export const createStaff = asyncHandler(async (req, res) => {
     name: name.trim(),
     email: email.toLowerCase().trim(),
     password,
-    phone: phone || "",
+    phone: cleanPhone,
     role: "STAFF",
     employeeId: employeeId || `EMP-${Date.now().toString().slice(-4)}`,
     department,
