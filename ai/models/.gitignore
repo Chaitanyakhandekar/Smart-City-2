@@ -1,0 +1,9 @@
+# Ignore large model checkpoints
+
+
+*.bin
+*.onnx
+
+# But keep configuration and sample metadata
+!model_config.json
+
