@@ -161,9 +161,10 @@ export const ReportComplaint = () => {
         const sourceLabel = result.predictionSource === "mobilenet"
           ? "PyTorch MobileNetV3"
           : result.predictionSource === "gemini_vision"
-          ? "Gemini Vision AI"
-          : "Rule-Based Heuristic";
-        toast.success(`AI classified (${sourceLabel}): ${resolvedCat}`);
+            ? "Gemini Vision AI"
+            : "Rule-Based Heuristic";
+        // toast.success(`AI classified (${sourceLabel}): ${resolvedCat}`);
+        toast.success(`AI analysis completed successfully!`);
       } else {
         throw new Error("No classification result returned from server");
       }
@@ -379,20 +380,18 @@ export const ReportComplaint = () => {
                 className="flex flex-col items-center relative z-10 focus:outline-none group"
               >
                 <div
-                  className={`w-9 h-9 rounded-2xl flex items-center justify-center font-bold text-xs transition-all ${
-                    isActive
-                      ? "bg-[#0D9488] text-white ring-4 ring-teal-100 shadow-xs scale-105"
-                      : isPassed
+                  className={`w-9 h-9 rounded-2xl flex items-center justify-center font-bold text-xs transition-all ${isActive
+                    ? "bg-[#0D9488] text-white ring-4 ring-teal-100 shadow-xs scale-105"
+                    : isPassed
                       ? "bg-[#10B981] text-white font-bold"
                       : "bg-[#F8FAFC] text-[#94A3B8] border border-[#E2E8F0]"
-                  }`}
+                    }`}
                 >
                   {isPassed ? <Check className="w-4 h-4 stroke-[3]" /> : step.number}
                 </div>
                 <span
-                  className={`text-[10px] sm:text-xs mt-1.5 font-bold tracking-tight text-center ${
-                    isActive ? "text-[#0D9488]" : isPassed ? "text-[#0F172A]" : "text-[#94A3B8]"
-                  }`}
+                  className={`text-[10px] sm:text-xs mt-1.5 font-bold tracking-tight text-center ${isActive ? "text-[#0D9488]" : isPassed ? "text-[#0F172A]" : "text-[#94A3B8]"
+                    }`}
                 >
                   {step.label}
                 </span>
@@ -668,9 +667,8 @@ export const ReportComplaint = () => {
                 </div>
                 <div className="bg-white p-3 rounded-xl border border-teal-100 shadow-2xs">
                   <span className="text-[10px] text-[#64748B] font-bold uppercase tracking-wider">Priority</span>
-                  <p className={`font-extrabold mt-1 text-xs truncate ${
-                    aiResult.priority === "HIGH" ? "text-rose-600" : aiResult.priority === "MEDIUM" ? "text-amber-600" : "text-[#0D9488]"
-                  }`}>
+                  <p className={`font-extrabold mt-1 text-xs truncate ${aiResult.priority === "HIGH" ? "text-rose-600" : aiResult.priority === "MEDIUM" ? "text-amber-600" : "text-[#0D9488]"
+                    }`}>
                     {aiResult.priority || "MEDIUM"}
                   </p>
                 </div>
